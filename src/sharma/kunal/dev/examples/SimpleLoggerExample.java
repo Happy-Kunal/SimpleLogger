@@ -6,9 +6,11 @@ import sharma.kunal.simplelogger.exceptions.*;
 public class SimpleLoggerExample {
     public static void main(String[] args) throws InterruptedException {
         try {
-            SimpleLoggerFactory.setLogFormatter(new DefaultLogFormatter());
+            SimpleLoggerFactory.setDefaultLogFormatter(new DefaultLogFormatter());
+            SimpleLoggerFactory.setLoggingLevel(LoggingLevel.WARN);
+
             SimpleLoggerInterface logger1 = SimpleLoggerFactory.getLogger();
-            SimpleLoggerInterface logger2 = SimpleLoggerFactory.getLogger();
+            SimpleLoggerInterface logger2 = SimpleLoggerFactory.getLogger("MyNamedLogger");
 
             final String logMessage = "Hello SimpleLogger";
 
@@ -25,7 +27,7 @@ public class SimpleLoggerExample {
             logger2.warn(logMessage);
             logger2.error(logMessage);
             logger2.critical(logMessage);
-        } catch (LogFormatterAlreadySetException | LogFormatterNotSetException e) {
+        } catch (DefaultLogFormatterAlreadySetException | LogFormatterNotSetException | LoggingLevelAlreadySetException e) {
             // these exceptions will never be raised
             // for code snipet given above
 

@@ -10,11 +10,11 @@ class LogFormatterExample {
         final String message = "This is an Example String";
         LogFormatter logger = new MyLogger();
 
-        System.out.println(logger.defaultLogger(message));
-        System.out.println(logger.debug(message));
-        System.out.println(logger.info(message));
-        System.out.println(logger.warn(message));
-        System.out.println(logger.error(message));
-        System.out.println(logger.critical(message));
+        System.out.println(logger.defaultLogger("TEMP", message));
+        System.out.println(logger.debug("TEMP", message));
+        System.out.println(logger.info("TEMP", message));
+        System.out.println(logger.warn("TEMP", message));
+        System.out.println(logger.error("TEMP", message));
+        System.out.println(logger.critical("TEMP", message));
     }
 }
